@@ -1,0 +1,13 @@
+function roadRadar (speed,area){
+let motorwayLimit=130
+let interstate=90
+let city=50
+let residenceArea=20
+switch(area){
+    case 'city':if(speed<=city){console.log(`Driving ${speed} km/h in a 50 zone`)}else{if(speed-city<=20){console.log(`The speed is ${speed-city} km/h faster than the allowed speed of ${city} - speeding`)}else if(speed-city>20&&speed-city<=40){console.log(`The speed is ${speed-city} km/h faster than the allowed speed of ${city} - excessive speeding`)}else if(speed-city>40){console.log(`The speed is ${speed-city} km/h faster than the allowed speed of ${city} - reckless driving`)}} break;
+    case 'residential':if(speed<=residenceArea){console.log(`Driving ${speed} km/h in a 20 zone`)}else{if(speed-residenceArea<=20){console.log(`The speed is ${speed-residenceArea} km/h faster than the allowed speed of ${residenceArea} - speeding`)}else if(speed-residenceArea>20&&speed-residenceArea<=40){console.log(`The speed is ${speed-residenceArea} km/h faster than the allowed speed of ${residenceArea} - excessive speeding`)}else if(speed-residenceArea>40){console.log(`The speed is ${speed-residenceArea} km/h faster than the allowed speed of ${residenceArea} - reckless driving`)}} break;
+    case 'interstate':if(speed<=interstate){console.log(`Driving ${speed} km/h in a 90 zone`)}else{if(speed-interstate<=20){console.log(`The speed is ${speed-interstate} km/h faster than the allowed speed of ${interstate} - speeding`)}else if(speed-interstate>20&&speed-interstate<=40){console.log(`The speed is ${speed-interstate} km/h faster than the allowed speed of ${interstate} - excessive speeding`)}else if(speed-interstate>40){console.log(`The speed is ${speed-interstate} km/h faster than the allowed speed of ${interstate} - reckless driving`)}} break;
+    case 'motorway':if(speed<=motorwayLimit){console.log(`Driving ${speed} km/h in a 130 zone`)}else{if(speed-motorwayLimit<=20){console.log(`The speed is ${speed-motorwayLimit} km/h faster than the allowed speed of ${motorwayLimit} - speeding`)}else if(speed-motorwayLimit>20&&speed-motorwayLimit<=40){console.log(`The speed is ${speed-motorwayLimit} km/h faster than the allowed speed of ${motorwayLimit} - excessive speeding`)}else if(speed-motorwayLimit>40){console.log(`The speed is ${speed-motorwayLimit} km/h faster than the allowed speed of ${motorwayLimit} - reckless driving`)}} break;
+}
+
+}roadRadar(21,'residential')
