@@ -43,16 +43,24 @@ class SummerCamp {
                 for (let el of this.listOfParticipants) {
                     names.push(el.name)
                 }
-                if (!names.includes(participant1) && !names.includes(participant2)) {
+                if (!names.includes(participant1) || !names.includes(participant2)) {
                     throw new Error(`Invalid entered name/s.`);
                 }
+                let conditions=[]
                 for (let el of this.listOfParticipants) {
                     if (el.name === participant1 || el.name === participant2) {
-                        if (el.condition !== 'child') {
-                            throw new Error(`Choose players with equal condition.`);
-                        }
+                        conditions.push(el.condition)
                     }
                 }
+                if(conditions[0]!==conditions[1]){
+                    throw new Error(`Choose players with equal condition.`);
+                }
+               
+                    
+                  
+                    
+                
+                
                 let participant1Found = this.listOfParticipants.find((x) => x.name === participant1)
                 let part1Index = this.listOfParticipants.indexOf(participant1Found)
                 let participant2Found = this.listOfParticipants.find((x) => x.name === participant2)
@@ -105,13 +113,10 @@ class SummerCamp {
 
 
 
-   const summerCamp= new SummerCamp("Jane Austen", "Pancharevo Sofia 1137, Bulgaria");
+const summerCamp = new SummerCamp("Jane Austen", "Pancharevo Sofia 1137, Bulgaria");
 console.log(summerCamp.registerParticipant("Petar Petarson", "student", 300));
-console.log(summerCamp.timeToPlay("Battleship", "Petar Petarson"));
-console.log(summerCamp.registerParticipant("Sara Dickinson", "child", 200));
-console.log(summerCamp.timeToPlay("WaterBalloonFights","Petar Petarson", "Sara Dickinson"))
-console.log(summerCamp.registerParticipant("Dimitur Kostov", "student", 300));
-console.log(summerCamp.timeToPlay("WaterBalloonFights", "Petar Petarson", "Dimitur Kostov"));
+console.log(summerCamp.unregisterParticipant("Petar"));
+console.log(summerCamp.unregisterParticipant("Petar Petarson"));
 
     
     
